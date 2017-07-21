@@ -8,7 +8,7 @@ import java.io.*;
 public class sort {
     public static void main(String[] args) throws IOException {
         String line;
-        FileInputStream file = new FileInputStream("test_numbers.txt");
+        FileInputStream file = new FileInputStream("numbers.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(file));
 
         List<Integer> list = new ArrayList<>();
