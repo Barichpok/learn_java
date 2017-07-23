@@ -18,7 +18,7 @@ public class EasyCalculator {
         do {
             System.out.print("Введите первое число: ");
             String numberOne = console().readLine();
-            int num1 = Integer.parseInt(numberOne);
+            double num1 = Integer.parseInt(numberOne);
 
             System.out.print("Введите знак операции: ");
             String operationMark = console().readLine();
@@ -26,24 +26,21 @@ public class EasyCalculator {
 
             System.out.print("Введите второе число: ");
             String numberTwo = console().readLine();
-            int num2 = Integer.parseInt(numberTwo);
+            double num2 = Integer.parseInt(numberTwo);
 
             switch (markOperation) {
                 case '+':
-                    System.out.println("Результат: ");
-                    System.out.println(num1 + num2);
+                    System.out.println("Ответ: " + (num1 + num2));
                     break;
                 case '-':
-                    System.out.println("Результат: ");
-                    System.out.println(num1 - num2);
+                    System.out.println("Ответ: " + (num1 - num2));
                     break;
                 case '*':
-                    System.out.println("Результат: ");
-                    System.out.println(num1 * num2);
+                    System.out.println("Ответ: " + (num1 * num2));
                     break;
                 case ':':
                     if (num2 != 0) {
-                        System.out.println("= " + (num1 / num2));
+                        System.out.println("Ответ: " + (num1 / num2));
                     } else {
                         System.out.println("Делить на 0 нельзя!");
                     }
