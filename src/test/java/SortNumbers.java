@@ -5,7 +5,7 @@
 import java.io.*;
         import java.util.*;
 
-public class sort {
+public class SortNumbers {
     public static void main(String[] args) throws IOException {
         String line;
         FileInputStream file = new FileInputStream("numbers.txt");
