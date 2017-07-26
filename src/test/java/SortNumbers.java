@@ -3,7 +3,7 @@
  */
 
 import java.io.*;
-        import java.util.*;
+import java.util.*;
 
 public class SortNumbers {
     public static void main(String[] args) throws IOException {
