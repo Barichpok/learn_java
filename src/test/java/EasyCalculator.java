@@ -9,27 +9,38 @@ import java.io.InputStreamReader;
 public class EasyCalculator {
 
     public static void main(String[] args) throws IOException {
-        boolean operationNext;
-
         do {
-            System.out.print("Введите ваш пример: ");
-            String expression = read();
-            String[] expressionArgs = expression.split("\\s+");
+            String[] expressionArgs = readOperation();
+            Double result = resultNumber(expressionArgs);
+            if (result != null) System.out.println(result);
 
+        } while (repeat());
+        console().close();
+    }
+
+    private static Double resultNumber(String[] expressionArgs) throws IOException {
+        if (expressionArgs.length == 3) {
             double num1 = Integer.parseInt(expressionArgs[0]);
             String markOperation = String.valueOf(expressionArgs[1]);
             double num2 = Integer.parseInt(expressionArgs[2]);
+            return operations(num1, markOperation, num2);
+        } else {
+            System.out.println("Введи пример через пробел!");
+        }
+        return null;
 
-            Double result = operations(num1, markOperation, num2);
-            if (result != null)
-                System.out.println(result);
+    }
 
-            System.out.println("Продолжить работу? ( да / нет )");
-            String nextOperation = read();
-            operationNext = (nextOperation.equals("да"));
+    private static String[] readOperation() throws IOException {
+        System.out.print("Введите ваш пример через пробел: ");
+        String expression = read();
+        return expression.split("\\s+");
+    }
 
-        } while (operationNext);
-        console().close();
+    private static boolean repeat() throws IOException {
+        System.out.println("Продолжить работу? ( да / нет )");
+        String nextOperation = read();
+        return nextOperation.equals("да");
     }
 
     private static BufferedReader console() {
