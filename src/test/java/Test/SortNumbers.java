@@ -1,6 +1,4 @@
-/**
- * Created by Владислав on 22.07.2017.
- */
+package Test;
 
 import java.io.*;
 import java.util.*;
