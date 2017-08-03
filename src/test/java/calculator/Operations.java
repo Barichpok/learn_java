@@ -1,4 +1,9 @@
-package Calculator;
+package calculator;
+
+import calculator.operations.Addition;
+import calculator.operations.Division;
+import calculator.operations.Multiplication;
+import calculator.operations.Subtraction;
 
 import java.io.IOException;
 
@@ -19,14 +24,14 @@ class Operations {
     private Double operations(Double num1, String markOperation, Double num2) {
         switch (markOperation) {
             case "+":
-                return num1 + num2;
+                return Addition.getCalculationResult();
             case "-":
-                return num1 - num2;
+                return Subtraction.getCalculationResult();
             case "*":
-                return num1 * num2;
+                return Multiplication.getCalculationResult();
             case "/":
                 if (num2 != 0) {
-                    return num1 / num2;
+                    return Division.getCalculationResult();
                 } else {
                     System.out.println("Делить на 0 нельзя!");
                 }
