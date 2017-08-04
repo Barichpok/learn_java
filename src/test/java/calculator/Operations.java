@@ -24,14 +24,14 @@ class Operations {
     private Double operations(Double num1, String markOperation, Double num2) {
         switch (markOperation) {
             case "+":
-                return Addition.getCalculationResult();
+                return Addition.getCalculationResult(num1, num2);
             case "-":
-                return Subtraction.getCalculationResult();
+                return Subtraction.getCalculationResult(num1, num2);
             case "*":
-                return Multiplication.getCalculationResult();
+                return Multiplication.getCalculationResult(num1, num2);
             case "/":
                 if (num2 != 0) {
-                    return Division.getCalculationResult();
+                    return Division.getCalculationResult(num1, num2);
                 } else {
                     System.out.println("Делить на 0 нельзя!");
                 }
