@@ -18,7 +18,7 @@ public class YourGift {
 
         System.out.println("Название подарка: " + Box.getBoxName());
         System.out.println("Общий вес подарка: " + (Snickers.getWeight() + Twix.getWeight() + Mars.getWeight() + Nuts.getWeight() + Box.getBoxWeight()) + " грамм");
-        System.out.println("Общий стоимость подарка: " + (Snickers.getCost() + Twix.getCost() + Mars.getCost() + Nuts.getCost() + Box.getBoxCost()) + " рублей");
+        System.out.println("Общая стоимость подарка: " + (Snickers.getCost() + Twix.getCost() + Mars.getCost() + Nuts.getCost() + Box.getBoxCost()) + " рублей");
         System.out.println("В подарке \"" + Box.getBoxName() + "\" содержится: " + Snickers.getName() + ", " + Twix.getName() + ", " + Mars.getName() + ", " + Nuts.getName());
     }
 }
