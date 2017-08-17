@@ -1,16 +1,14 @@
 package gifts;
 
-public class Sweets {
+public abstract class Sweet {
     private String name;
     private int weight;
     private int cost;
-    private String color;
 
-    public Sweets(String name, int weight, int cost, String color) {
+    public Sweet(String name, int weight, int cost) {
         this.name = name;
         this.weight = weight;
         this.cost = cost;
-        this.color = color;
     }
 
     public String getName() {
@@ -37,11 +35,8 @@ public class Sweets {
         this.cost = cost;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
+    @Override
+    public String toString() {
+        return String.format("Имя: %s, Вес: %s, Стоимость: %s", name, weight, cost);
     }
 }
