@@ -9,9 +9,10 @@ import java.util.Map;
 
 public class FindCountOfWord {
 
-    private static final String FILE_NAME = "src\\test\\java\\file_io\\chr1.subst.fa";
+    private static final String FILE_NAME = "src\\test\\java\\file_io\\chr1.subst.fa"; //вынеси в main
 
-    public Integer getCount() throws IOException {
+    public Integer getCount() throws IOException { //ты тут еще раз читаешь из файла данные. они ведь уже прочитаны
+        //этот метод должен принимать список строк, в строчках находить подстроку и возвращать сумму этих вхождений
 
         Map<String, Integer> words = new HashMap<>();
         String line;
@@ -36,7 +37,7 @@ public class FindCountOfWord {
 
         int count = 0;
         for (Map.Entry<String, Integer> findWord : words.entrySet()) {
-            if (findWord.getKey().matches("AGAAGGGA\\w+")) {
+            if (findWord.getKey().matches("AGAAGGGA\\w+")) { //искомую подстроку тоже в main вынеси,опять жесткая привязка к ноккретному значению
                 count++;
             }
         }
