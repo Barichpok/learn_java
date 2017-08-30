@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class ConvertFromFastaToCsv {
     public void ConvertFile() throws IOException {
-
+        //все названия файлов в main
         final Path path = Paths.get("src", "test", "java", "file_io");
         final Path txt = path.resolve("chr1.subst.fa");
         final Path csv = path.resolve("outputFile.csv");
