@@ -1,46 +1,49 @@
 package file_io;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static java.lang.String.format;
 
 public class FindCountOfWord {
 
-    private static final String FILE_NAME = "src\\test\\java\\file_io\\chr1.subst.fa"; //вынеси в main
+    private static Main main = new Main();
+    private int count = 0;
 
-    public Integer getCount() throws IOException { //ты тут еще раз читаешь из файла данные. они ведь уже прочитаны
-        //этот метод должен принимать список строк, в строчках находить подстроку и возвращать сумму этих вхождений
+    public Integer getCount() throws IOException {
 
-        Map<String, Integer> words = new HashMap<>();
-        String line;
+        List<String> words = readFromFile(main.FILE_NAME);
 
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_NAME)));
-
-            while ((line = br.readLine()) != null) {
-                String allWords = line.toUpperCase();
-                Integer count = words.get(allWords);
-                if (count == null) {
-                    count = 0;
-                }
-                words.put(allWords, ++count);
-            }
-
-            br.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        int count = 0;
-        for (Map.Entry<String, Integer> findWord : words.entrySet()) {
-            if (findWord.getKey().matches("AGAAGGGA\\w+")) { //искомую подстроку тоже в main вынеси,опять жесткая привязка к ноккретному значению
-                count++;
-            }
+        for (String item : words) {
+            count += getCountInString(item, main.regex);
         }
         return count;
+    }
+
+    private static List<String> readFromFile(String fileName) throws IOException {
+        List<String> linkedList = new LinkedList<>();
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(main.FILE_NAME)))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                linkedList.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException(format("file [%s] not found", fileName));
+        }
+        return linkedList;
+    }
+
+    private static int getCountInString(String string, String patternValue) {
+        int counter = 0;
+        Pattern pattern = Pattern.compile(patternValue, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(string);
+        while (matcher.find()) {
+            counter++;
+        }
+        return counter;
     }
 }
