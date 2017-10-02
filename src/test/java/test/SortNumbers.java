@@ -1,14 +1,12 @@
-/**
- * Created by Владислав on 22.07.2017.
- */
+package test;
 
 import java.io.*;
-        import java.util.*;
+import java.util.*;
 
-public class sort {
+public class SortNumbers {
     public static void main(String[] args) throws IOException {
         String line;
-        FileInputStream file = new FileInputStream("test_numbers.txt");
+        FileInputStream file = new FileInputStream("numbers.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(file));
 
         List<Integer> list = new ArrayList<>();
